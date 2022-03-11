@@ -59,9 +59,9 @@ class Alias {
 }
 
 # Handle aliases
-$aliases = [new Alias("dragonpilot-community", "devel-i18n", ["dragonpilot", "dp"], "", "dragonpilot"),
-            new Alias("commaai", DEFAULT_STOCK_BRANCH, ["stock", "commaai"], "", "openpilot"),
-            new Alias("sshane", "SA-master", ["shane", "smiskol", "sa", "sshane"], "", "Stock Additions")];
+$aliases = [new Alias("boggyver", "tinkla_unity_dev", ["dev", "d"], "", "Tinkla%20Unity%20Dev"),
+            new Alias("boggyver", "tinkla_unity_beta", ["beta", "b"], "", "Tinkla%20Unity%20Beta"),
+            new Alias("boggyver", DEFAULT_STOCK_BRANCH, ["release", "r"], "", "Tinkla%20Unity")];
 foreach ($aliases as $al) {
     if (in_array($username, $al->aliases)) {
         $username = $al->name;
@@ -72,7 +72,7 @@ foreach ($aliases as $al) {
     }
 }
 if ($loading_msg == "") {  # if not an alias with custom msg and not specified use username
-    $loading_msg = $username;
+    $loading_msg = "Tinkla%20Unity";
 } else {  # make sure we encode spaces, neos setup doesn't like spaces (branch and username shouldn't have spaces)
 	$loading_msg = str_replace(" ", "%20", $loading_msg);
 }
