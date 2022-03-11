@@ -61,7 +61,7 @@ class Alias {
 # Handle aliases
 $aliases = [new Alias("boggyver", "tinkla_unity_dev", ["dev", "d"], "", "Tinkla%20Unity%20Dev"),
             new Alias("boggyver", "tinkla_unity_beta", ["beta", "b"], "", "Tinkla%20Unity%20Beta"),
-            new Alias("boggyver", DEFAULT_STOCK_BRANCH, ["release", "r"], "", "Tinkla%20Unity")];
+            new Alias("boggyver", DEFAULT_STOCK_BRANCH, ["release", "r", "", "index.php"], "", "Tinkla%20Unity")];
 foreach ($aliases as $al) {
     if (in_array($username, $al->aliases)) {
         $username = $al->name;
