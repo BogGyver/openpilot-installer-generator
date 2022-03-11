@@ -38,7 +38,7 @@ if (array_key_exists("url", $_GET)) {
     $url = $_GET["url"];
 }
 
-list($username, $branch, $loading_msg) = explode("/", $url);  # todo: clip these strings at the max length in index (to show up on the webpage)
+list($username, $branch, $loading_msg) = explode("/", "/".$url);  # todo: clip these strings at the max length in index (to show up on the webpage)
 
 $username = substr(strtolower($username), 0, 39);  # max GH username length
 $branch = substr(trim($branch), 0, 255);  # max GH branch
