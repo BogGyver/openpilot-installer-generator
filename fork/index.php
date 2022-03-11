@@ -1,6 +1,13 @@
 <?php
 error_reporting(E_ALL ^ E_WARNING);
 
+if (!function_exists('str_contains')) {
+    function str_contains(string $haystack, string $needle): bool
+    {
+        return '' === $needle || false !== strpos($haystack, $needle);
+    }
+}
+
 # Constants
 define("USER_AGENT", $_SERVER['HTTP_USER_AGENT']);
 define("IS_NEOS", str_contains(USER_AGENT, "NEOSSetup"));
@@ -16,7 +23,7 @@ function logData() {
     global $url;
     global $username;
     global $branch;
-    date_default_timezone_set('America/Chicago');
+    date_default_timezone_set('America/New York');
 
     $data = array("IP" => $_SERVER['REMOTE_ADDR'], "url" => $url, "username" => $username, "branch" => $branch, "is_neos" => IS_NEOS, "is_agnos" => IS_AGNOS, "is_wget" => IS_WGET, "user_agent" => USER_AGENT, "date" => date("Y-m-d_H:i:s",time()));
     $data = json_encode($data);
