@@ -17,7 +17,7 @@ define("IS_WGET", str_contains(USER_AGENT, "Wget"));
 define("DEFAULT_STOCK_BRANCH", IS_NEOS ? "tesla_unity_releaseC2" : "tesla_unity_releaseC3");
 
 define("WEBSITE_URL", "https://op.tinkla.us");
-define("BASE_DIR", "/" . basename(__DIR__));
+define("BASE_DIR", "");
 
 function logData() {
     global $url;
@@ -139,6 +139,7 @@ echo '<html>
         <button class="button" name="download_agnos">Download AGNOS Installer Binary</button>
     </form>
     <h5>Or enter this URL on the setup screen on your device.</h5>
+    '.$BASE_DIR.'
     </body>
 </html>';
 
