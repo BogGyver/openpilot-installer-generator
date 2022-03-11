@@ -7,9 +7,9 @@ define("IS_NEOS", str_contains(USER_AGENT, "NEOSSetup"));
 define("IS_AGNOS", str_contains(USER_AGENT, "AGNOSSetup"));
 define("IS_WGET", str_contains(USER_AGENT, "Wget"));
 # Use release2 if NEOS, else release3 (careful! wget assumes comma three)
-define("DEFAULT_STOCK_BRANCH", IS_NEOS ? "release2" : "release3");
+define("DEFAULT_STOCK_BRANCH", IS_NEOS ? "tesla_unity_releaseC2" : "tesla_unity_releaseC3");
 
-define("WEBSITE_URL", "https://smiskol.com");
+define("WEBSITE_URL", "https://op.tinkla.us");
 define("BASE_DIR", "/" . basename(__DIR__));
 
 function logData() {
@@ -75,9 +75,9 @@ logData();
 $build_script = IS_NEOS ? "/build_neos.php" : "/build_agnos.php";
 if (IS_NEOS or IS_AGNOS or IS_WGET) {  # if NEOS or wget serve file immediately. commaai/stock if no username provided
     if ($username == "") {
-        $username = "commaai";
+        $username = "boggyver";
         $branch = DEFAULT_STOCK_BRANCH;
-        $loading_msg = "openpilot";
+        $loading_msg = "Tinkla Unity";
     }
     header("Location: " . BASE_DIR . $build_script . "?username=" . $username . "&branch=" . $branch . "&loading_msg=" . $loading_msg);
     return;
